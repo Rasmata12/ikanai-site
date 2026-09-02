@@ -7,8 +7,8 @@ export const markPath = '/assets/ikanai-mark.png';
 
 export const SCENES = {
   accueil: '/assets/scene-accueil.jpg',
-  qr: '/assets/scene-qr.jpg',
-  pilotage: '/assets/scene-pilotage.jpg',
+  qr: '/assets/scene-pilotage (1).jpg',
+  pilotage: '/assets/scene-pilotage (1).jpg',
   conseil: '/assets/scene-conseil.jpg',
 };
 

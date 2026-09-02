@@ -8,12 +8,12 @@ const SLIDE_DURATION = 4200;
 const IMAGES = [SCENES.qr, SCENES.accueil, SCENES.pilotage, SCENES.conseil];
 // Cadrage grand écran : la photo est large, on peut se permettre un point de
 // focalisation décalé.
-const POSITIONS = ['62% 38%', '58% 42%', '55% 34%', '58% 35%'];
+const POSITIONS = ['58% 42%', '58% 42%', '55% 34%', '58% 35%'];
 // Cadrage mobile : sur un écran étroit et haut, object-fit:cover ne rogne
 // quasiment que la largeur (la hauteur tient déjà en entier). Il faut donc un
 // point de focalisation resserré sur le sujet réel de chaque photo, sinon on
 // se retrouve à ne voir qu'un bout de fenêtre ou de mur.
-const POSITIONS_MOBILE = ['56% 40%', '80% 44%', '22% 62%', '68% 28%'];
+const POSITIONS_MOBILE = ['58% 42%', '80% 44%', '22% 62%', '68% 28%'];
 const EASE = [0.22, 0.85, 0.24, 1] as const;
 
 export function HeroLight() {
