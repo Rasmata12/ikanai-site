@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>IKAN AI — Newsletter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #0c3d24;
+    --secondary: #1b5d36;
+    --accent: #a7d129;
+    --bg: #f4f7f0;
+    --card: #ffffff;
+    --border: #e5ebdd;
+    --text: #12261d;
+    --text-soft: #61715f;
+    --text-faint: #93a291;
+    --radius: 22px;
+    --shadow: 0 30px 70px -40px rgba(12, 61, 36, .35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(60% 45% at 85% -8%, rgba(167,209,41,.14), transparent 60%),
+      radial-gradient(50% 40% at 0% 100%, rgba(27,93,54,.10), transparent 60%),
+      var(--bg);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 90px; }
+
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+  header img { width: 38px; height: 38px; object-fit: contain; }
+  header h1 { font-size: 17px; font-weight: 800; margin: 0; letter-spacing: -.01em; }
+  header h1 span { color: var(--secondary); }
+  header p { margin: 1px 0 0; font-size: 12px; color: var(--text-soft); font-weight: 500; }
+  header .badge {
+    margin-left: auto; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--secondary); background: rgba(167,209,41,.18);
+    padding: 6px 12px; border-radius: 999px;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 28px; margin-bottom: 22px; box-shadow: var(--shadow);
+  }
+  .card h2 {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--secondary); margin: 0 0 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card h2::before {
+    content: ""; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--accent); box-shadow: 0 0 0 3px rgba(167,209,41,.25);
+  }
+
+  label {
+    display: block; font-size: 12.5px; font-weight: 600; color: var(--text-soft);
+    margin: 16px 0 7px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input[type="password"], input[type="text"], select, textarea {
+    width: 100%; border: 1.5px solid var(--border); border-radius: 13px;
+    padding: 12px 14px; font-size: 14px; font-family: inherit; color: var(--text);
+    background: #fbfcf9; transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  textarea { min-height: 200px; resize: vertical; line-height: 1.7; }
+  input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(167,209,41,.18);
+  }
+  ::placeholder { color: var(--text-faint); }
+
+  button {
+    font-family: inherit; font-weight: 700; font-size: 13.5px;
+    border: none; border-radius: 999px; padding: 12px 22px; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  button:active { transform: scale(.97); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: #fff; box-shadow: 0 16px 30px -14px rgba(12,61,36,.6);
+  }
+  .btn-primary:hover { box-shadow: 0 20px 36px -14px rgba(12,61,36,.7); }
+  .btn-primary:disabled { opacity: .5; cursor: not-allowed; box-shadow: none; transform: none; }
+  .btn-accent {
+    background: linear-gradient(135deg, #c3e35b, var(--accent));
+    color: var(--primary); box-shadow: 0 16px 30px -14px rgba(167,209,41,.55);
+  }
+  .btn-ghost {
+    background: #fff; color: var(--primary); border: 1.5px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--secondary); }
+  .btn-link {
+    background: none; border: none; padding: 0; color: var(--secondary);
+    font-weight: 700; font-size: 12.5px; cursor: pointer; text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat-box {
+    background: linear-gradient(160deg, #fbfcf9, #f2f6ec);
+    border: 1px solid var(--border); border-radius: 16px; padding: 16px 14px;
+  }
+  .stat-num {
+    font-size: 28px; font-weight: 800; color: var(--primary); line-height: 1;
+    letter-spacing: -.02em;
+  }
+  .stat-label { font-size: 11px; color: var(--text-soft); margin-top: 6px; font-weight: 500; }
+
+  .msg { border-radius: 13px; padding: 13px 16px; font-size: 13px; margin-top: 14px; font-weight: 500; }
+  .msg-ok { background: #eef7e2; color: #3a5c26; border: 1px solid #d3e8bf; }
+  .msg-err { background: #fdecec; color: #8a2b2b; border: 1px solid #f5c6c6; }
+  .hidden { display: none !important; }
+
+  .sub-list { margin-top: 20px; border-top: 1px dashed var(--border); padding-top: 16px; }
+  .sub-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
+  .sub-table th {
+    text-align: left; color: var(--text-soft); font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .05em; padding: 6px 10px;
+  }
+  .sub-table td { padding: 10px; border-top: 1px solid var(--border); }
+  .sub-table tr:hover td { background: #fafbf7; }
+  .sub-table td.lg {
+    color: var(--secondary); font-weight: 700; font-size: 10.5px; text-transform: uppercase;
+  }
+  .sub-empty { font-size: 13px; color: var(--text-soft); margin-top: 10px; }
+
+  #screen-login { display: flex; min-height: 70vh; align-items: center; justify-content: center; }
+  #screen-login .card { max-width: 380px; width: 100%; text-align: center; }
+  #screen-login .lock {
+    width: 54px; height: 54px; margin: 0 auto 16px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    display: flex; align-items: center; justify-content: center;
+  }
+  #screen-login .lock svg { width: 22px; height: 22px; }
+  #screen-login h2 { font-size: 16px; text-transform: none; letter-spacing: 0; justify-content: center; color: var(--text); }
+  #screen-login h2::before { display: none; }
+  .muted { color: var(--text-soft); font-size: 12px; line-height: 1.6; }
+
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .stat-num { font-size: 22px; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="/admin/logo.png" alt="IKAN AI" />
+      <div>
+        <h1>IKAN <span>AI</span></h1>
+        <p>Diffusion newsletter</p>
+      </div>
+      <span class="badge" id="env-badge">Admin</span>
+    </header>
+
+    <!-- Écran de connexion -->
+    <section id="screen-login">
+      <div class="card">
+        <div class="lock">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10V8a6 6 0 1112 0v2M5 10h14a1 1 0 011 1v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9a1 1 0 011-1z"
+              stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2>Accès administrateur</h2>
+        <p class="muted">Collez le jeton défini dans <code>ADMIN_TOKEN</code> (fichier <code>.env</code> du backend).</p>
+        <label for="token" style="text-align:left;">Jeton</label>
+        <input type="password" id="token" placeholder="••••••••••••••••" autocomplete="off" />
+        <div id="login-msg"></div>
+        <div class="row" style="margin-top:18px; justify-content:center;">
+          <button class="btn-primary" id="btn-login">Se connecter</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Écran principal -->
+    <section id="screen-main" class="hidden">
+      <div class="card">
+        <h2>Abonnés actifs</h2>
+        <div class="stats-grid">
+          <div class="stat-box"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Au total</div></div>
+          <div class="stat-box"><div class="stat-num" id="stat-fr">—</div><div class="stat-label">Français</div></div>
+          <div class="stat-box"><div class="stat-num" id="stat-en">—</div><div class="stat-label">Anglais</div></div>
+        </div>
+        <div id="mail-warning" class="msg msg-err hidden">
+          L'envoi d'e-mail n'est pas configuré sur le serveur (SMTP manquant dans .env) : l'envoi échouera.
+        </div>
+        <div id="quota-warning" class="msg msg-err hidden">
+          Vous approchez de la limite Gmail (500 destinataires/jour). Espacez vos envois sur plusieurs jours,
+          ou passez à un service dédié à l'envoi en nombre — voir le README.
+        </div>
+        <div class="sub-list">
+          <button class="btn-link" id="btn-toggle-list">Voir la liste des adresses</button>
+          <div id="sub-list-content" class="hidden"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Composer un message</h2>
+        <label for="subject">Objet</label>
+        <input type="text" id="subject" placeholder="Ex. : Une nouveauté chez IKAN AI" maxlength="200" />
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Écrivez votre actualité ici. Une ligne vide sépare les paragraphes."></textarea>
+
+        <label for="langue">Destinataires</label>
+        <select id="langue">
+          <option value="all">Tous les abonnés</option>
+          <option value="fr">Abonnés francophones uniquement</option>
+          <option value="en">Abonnés anglophones uniquement</option>
+        </select>
+
+        <div class="row" style="margin-top:20px;">
+          <button class="btn-accent" id="btn-send">Envoyer la diffusion</button>
+          <button class="btn-ghost" id="btn-logout">Se déconnecter</button>
+        </div>
+        <div id="send-msg"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API = window.location.origin;
+    const $ = (id) => document.getElementById(id);
+    let token = sessionStorage.getItem('ikanai_admin_token') || '';
+    let currentSubscribers = [];
+
+    function showMsg(el, text, ok) {
+      el.className = 'msg ' + (ok ? 'msg-ok' : 'msg-err');
+      el.textContent = text;
+    }
+    function clearMsg(el) { el.className = ''; el.textContent = ''; }
+
+    async function callAdmin(path, options) {
+      const res = await fetch(API + path, {
+        ...options,
+        headers: { 'Content-Type': 'application/json', 'x-admin-token': token, ...(options && options.headers) },
+      });
+      const json = await res.json().catch(() => null);
+      return { status: res.status, json };
+    }
+
+    function renderSubscriberList() {
+      const container = $('sub-list-content');
+      if (currentSubscribers.length === 0) {
+        container.innerHTML = '<p class="sub-empty">Aucun abonné pour le moment.</p>';
+        return;
+      }
+      const rows = currentSubscribers
+        .map((s) => `<tr><td>${s.email}</td><td class="lg">${s.langue}</td></tr>`)
+        .join('');
+      container.innerHTML = `
+        <table class="sub-table">
+          <thead><tr><th>Adresse e-mail</th><th>Langue</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn-ghost" id="btn-export-csv">Exporter en CSV</button>
+        </div>
+      `;
+      $('btn-export-csv').addEventListener('click', exportCsv);
+    }
+
+    function exportCsv() {
+      const lines = ['email,langue', ...currentSubscribers.map((s) => `${s.email},${s.langue}`)];
+      const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'abonnes-newsletter.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    $('btn-toggle-list').addEventListener('click', () => {
+      const content = $('sub-list-content');
+      const hidden = content.classList.toggle('hidden');
+      $('btn-toggle-list').textContent = hidden ? 'Voir la liste des adresses' : 'Masquer la liste';
+    });
+
+    async function loadStats() {
+      const { status, json } = await callAdmin('/api/admin/newsletter/subscribers');
+      if (status === 401 || status === 503) {
+        logout();
+        showMsg($('login-msg'), (json && json.error) || 'Jeton invalide.', false);
+        return;
+      }
+      if (json && json.ok) {
+        $('stat-total').textContent = json.total;
+        $('stat-fr').textContent = json.byLangue.fr;
+        $('stat-en').textContent = json.byLangue.en;
+        $('mail-warning').classList.toggle('hidden', json.mailConfigured);
+        $('quota-warning').classList.toggle('hidden', json.total < 450);
+        currentSubscribers = json.subscribers || [];
+        renderSubscriberList();
+      }
+    }
+
+    function login() {
+      const value = $('token').value.trim();
+      if (!value) return;
+      token = value;
+      sessionStorage.setItem('ikanai_admin_token', token);
+      clearMsg($('login-msg'));
+      $('screen-login').classList.add('hidden');
+      $('screen-main').classList.remove('hidden');
+      loadStats();
+    }
+
+    function logout() {
+      token = '';
+      sessionStorage.removeItem('ikanai_admin_token');
+      $('screen-main').classList.add('hidden');
+      $('screen-login').classList.remove('hidden');
+      $('token').value = '';
+    }
+
+    $('btn-login').addEventListener('click', login);
+    $('token').addEventListener('keydown', (e) => { if (e.key === 'Enter') login(); });
+    $('btn-logout').addEventListener('click', logout);
+
+    $('btn-send').addEventListener('click', async () => {
+      const subject = $('subject').value.trim();
+      const message = $('message').value.trim();
+      const langue = $('langue').value;
+      const btn = $('btn-send');
+      const msgEl = $('send-msg');
+      clearMsg(msgEl);
+
+      if (subject.length < 3) return showMsg(msgEl, "L'objet est trop court.", false);
+      if (message.length < 10) return showMsg(msgEl, 'Le message est trop court.', false);
+
+      const count = langue === 'all' ? $('stat-total').textContent
+        : langue === 'fr' ? $('stat-fr').textContent : $('stat-en').textContent;
+
+      if (Number(count) > 500) {
+        return showMsg(
+          msgEl,
+          `${count} destinataires dépasse la limite Gmail (500/jour). Espacez l'envoi sur plusieurs jours ou passez à un service dédié — voir le README.`,
+          false,
+        );
+      }
+
+      if (!confirm(`Envoyer ce message à ${count} abonné(s) ? Cette action ne peut pas être annulée.`)) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+      try {
+        const { status, json } = await callAdmin('/api/admin/newsletter/send', {
+          method: 'POST',
+          body: JSON.stringify({ subject, message, langue }),
+        });
+        if (status === 401 || status === 503) {
+          logout();
+          showMsg($('login-msg'), (json && json.error) || 'Session expirée.', false);
+          return;
+        }
+        if (json && json.ok) {
+          showMsg(msgEl, `Envoyé : ${json.sent}/${json.total}${json.failed ? ` (${json.failed} échec(s))` : ''}.`, true);
+          $('subject').value = ''; $('message').value = '';
+          loadStats();
+        } else {
+          showMsg(msgEl, (json && json.error) || "L'envoi a échoué.", false);
+        }
+      } catch (err) {
+        showMsg(msgEl, 'Impossible de joindre le serveur.', false);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer la diffusion';
+      }
+    });
+
+    if (token) {
+      $('screen-login').classList.add('hidden');
+      $('screen-main').classList.remove('hidden');
+      loadStats();
+    }
+  </script>
+</body>
+</html>
