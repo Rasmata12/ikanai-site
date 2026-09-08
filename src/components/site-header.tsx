@@ -68,7 +68,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageSwitch lang={lang} onChange={setLang} />
-          <ArrowButton href="/contact" variant="primary" testId="button-header-cta" compact>
+          <ArrowButton href="/demo" variant="primary" testId="button-header-cta" compact>
             {t.nav.cta}
           </ArrowButton>
         </div>
@@ -101,7 +101,7 @@ export function SiteHeader() {
             ))}
           </div>
           <div className="mt-5">
-            <ArrowButton href="/contact" testId="button-mobile-cta">
+            <ArrowButton href="/demo" testId="button-mobile-cta">
               {t.nav.cta}
             </ArrowButton>
           </div>

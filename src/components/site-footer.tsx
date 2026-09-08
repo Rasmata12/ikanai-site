@@ -11,7 +11,7 @@ export function SiteFooter() {
     { href: '/a-propos', label: t.nav.about },
     { href: '/a-propos#histoire', label: t.footer.story },
     { href: '/a-propos#equipe', label: t.footer.team },
-    { href: '/contact#offres', label: t.footer.plans },
+    { href: '/solution#offres', label: t.footer.plans },
     { href: '/contact', label: t.nav.contact },
   ];
 

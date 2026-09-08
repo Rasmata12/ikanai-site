@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
 import { CtaBand, PageHero, useReveals } from '@/components/brand-shared';
 import { Icon } from '@/components/icon';
+import { OffersSection } from '@/components/offers-section';
 import { useLang } from '@/i18n/language-context';
 
 const EASE = [0.22, 0.85, 0.24, 1] as const;
@@ -41,6 +42,8 @@ export default function PlatformPage() {
           ))}
         </div>
       </section>
+
+      <OffersSection />
 
       <CtaBand />
     </div>

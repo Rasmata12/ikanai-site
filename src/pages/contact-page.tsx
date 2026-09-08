@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { CtaBand, PageHero, SectionHeading, useReveals } from '@/components/brand-shared';
 import { Icon } from '@/components/icon';
 import { submitContact } from '@/lib/api';
-import { OffersSection } from '@/components/offers-section';
 import { useLang } from '@/i18n/language-context';
 
 const HREFS = ['mailto:contact@ikanai.app', 'tel:+22670000000', 'https://www.linkedin.com'];
@@ -32,13 +31,6 @@ export default function ContactPage() {
   const update = (field: keyof typeof form, value: string) =>
     setForm((current) => ({ ...current, [field]: value }));
 
-  const chooseOffer = (offer: string) => {
-    const match = t.contact.subjects.find((subject) => subject.includes(offer));
-    update('sujet', match ?? t.contact.subjects[0]);
-    setSent(false);
-    document.getElementById('formulaire')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setSending(true);
@@ -57,7 +49,6 @@ export default function ContactPage() {
       <PageHero eyebrow={t.contact.eyebrow} title={t.contact.title} accent={t.contact.accent} lede={t.contact.lede}>
         <div className="mt-10 flex flex-wrap items-center gap-2.5">
           {[
-            { href: '#offres', label: t.contact.anchors.offers },
             { href: '#formulaire', label: t.contact.anchors.write },
             { href: '#questions', label: t.contact.anchors.faq },
           ].map(({ href, label }) => (
@@ -71,8 +62,6 @@ export default function ContactPage() {
           ))}
         </div>
       </PageHero>
-
-      <OffersSection onSelect={chooseOffer} />
 
       {/* FORMULAIRE */}
       <section id="formulaire" className="shell-x aurora aurora--soft surface-light relative scroll-mt-24 section-y">

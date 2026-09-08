@@ -252,7 +252,7 @@ export function CtaBand() {
           <p className="mt-5 max-w-[500px] t-lg leading-8 text-white/65">{t.cta.lede}</p>
         </div>
         <div className="flex flex-wrap items-center gap-4">
-          <ArrowButton href="/contact" variant="accent" testId="button-cta-primary">
+          <ArrowButton href="/demo" variant="accent" testId="button-cta-primary">
             {t.cta.primary}
           </ArrowButton>
           <ArrowButton href="/solution" variant="ghost-light" testId="button-cta-secondary">

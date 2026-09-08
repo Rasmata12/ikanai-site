@@ -135,7 +135,7 @@ export function HeroLight() {
           </AnimatePresence>
 
           <div className="hero-bright__buttons flex flex-wrap items-center">
-            <ArrowButton href="/contact" variant="primary" testId="button-hero-demo">
+            <ArrowButton href="/demo" variant="primary" testId="button-hero-demo">
               {t.hero.primary}
             </ArrowButton>
             <ArrowButton href="/solution" variant="outline" testId="button-hero-platform">

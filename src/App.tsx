@@ -16,6 +16,7 @@ const CockpitPage = lazy(() => import('@/pages/cockpit-page'));
 const GovernancePage = lazy(() => import('@/pages/governance-page'));
 const AboutPage = lazy(() => import('@/pages/about-page'));
 const ContactPage = lazy(() => import('@/pages/contact-page'));
+const DemoPage = lazy(() => import('@/pages/demo-page'));
 
 function PageLoader() {
   return (
@@ -28,7 +29,7 @@ function PageLoader() {
 function LegacyOffersRedirect() {
   const [, navigate] = useLocation();
   useEffect(() => {
-    navigate('/contact', { replace: true });
+    navigate('/solution', { replace: true });
     window.setTimeout(() => document.getElementById('offres')?.scrollIntoView({ behavior: 'smooth' }), 260);
   }, [navigate]);
   return <PageLoader />;
@@ -103,6 +104,7 @@ function Router() {
             <Route path="/solution/gouvernance" component={GovernancePage} />
             <Route path="/a-propos" component={AboutPage} />
             <Route path="/contact" component={ContactPage} />
+            <Route path="/demo" component={DemoPage} />
             <Route path="/nos-offres" component={LegacyOffersRedirect} />
             <Route path="/plateforme" component={LegacyPlatformRedirect} />
             <Route path="/plateforme/:rest*" component={LegacyPlatformRedirect} />
