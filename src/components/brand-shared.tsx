@@ -85,7 +85,7 @@ export function ArrowButton({
   compact?: boolean;
 }) {
   const className = `focus-ring shine group inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-60 sm:gap-2.5 ${
-    compact ? 'px-4 py-2 text-[12px] sm:px-5 sm:py-2.5 sm:text-[13px]' : 'px-4 py-2.5 text-[12.5px] sm:px-7 sm:py-3.5 sm:text-sm'
+    compact ? 'px-3 py-2 text-[11px] sm:px-5 sm:py-2.5 sm:text-[13px]' : 'px-4 py-2.5 text-[12.5px] sm:px-7 sm:py-3.5 sm:text-sm'
   } ${VARIANTS[variant]}`;
   const inner = (
     <>

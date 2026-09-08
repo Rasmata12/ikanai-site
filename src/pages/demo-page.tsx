@@ -69,11 +69,11 @@ export default function DemoPage() {
                 {copy.title} <span className="text-gradient-light">{copy.accent}</span>
               </h1>
               <p className="mt-8 max-w-[510px] t-lg leading-8 text-white/65">{copy.lede}</p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <ArrowButton href="/contact" variant="accent" testId="button-demo-contact">
+              <div className="mt-10 flex flex-nowrap items-center gap-1.5 sm:gap-4">
+                <ArrowButton href="/contact" variant="accent" testId="button-demo-contact" compact>
                   {copy.contact}
                 </ArrowButton>
-                <ArrowButton href="/solution" variant="ghost-light" testId="button-demo-solution">
+                <ArrowButton href="/solution" variant="ghost-light" testId="button-demo-solution" compact>
                   {copy.solution}
                 </ArrowButton>
               </div>
