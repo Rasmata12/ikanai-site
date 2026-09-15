@@ -271,10 +271,10 @@ export function CtaBand({ classic = false }: { classic?: boolean }) {
       <div className="cta-premium__grid absolute inset-0" aria-hidden="true" />
       <div className="cta-premium__glow absolute -right-24 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full" aria-hidden="true" />
       <div className="reveal relative mx-auto max-w-[1240px]">
-        <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-24">
+        <div className="grid items-end gap-10 md:grid-cols-[1.15fr_.85fr] md:gap-16 lg:gap-24">
           <div>
             <p className="mb-6 t-xs font-bold uppercase tracking-[.28em] text-[hsl(var(--accent))]">Une décision plus claire commence ici</p>
-            <h2 className="max-w-[760px] font-display text-[clamp(2.35rem,5vw,5rem)] leading-[.98] tracking-[-.04em] text-white">
+            <h2 className="max-w-[640px] font-display text-[clamp(1.9rem,3.4vw,3.6rem)] leading-[1.05] tracking-[-.03em] text-white">
               {t.cta.title}
             </h2>
           </div>
