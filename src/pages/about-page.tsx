@@ -54,7 +54,7 @@ const MEMBERS = [
     name: 'Alane Traoré',
     title: 'Ingénieur des systèmes Numériques',
     subtitle: 'Développeur Backend',
-    photo: 'public/assets/equipe/image-1789404871583.png',
+    photo: '/assets/equipe/image-1789404871583.png',
     initials: 'AT',
     mail: 'alane@ikanai.app',
   },
