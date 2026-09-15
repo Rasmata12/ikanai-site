@@ -1,5 +1,4 @@
 import { useEffect, type ReactNode } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import { ScrollProgress } from '@/components/brand-shared';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -61,23 +60,11 @@ function ScrollManager() {
 }
 
 function Shell({ children }: { children: ReactNode }) {
-  const [location] = useLocation();
   return (
     <div className="page-grain flex min-h-[100dvh] flex-col bg-[hsl(var(--background))]">
       <ScrollProgress />
       <SiteHeader />
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.main
-          key={location}
-          className="flex-1"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {children}
-        </motion.main>
-      </AnimatePresence>
+      <main className="flex-1">{children}</main>
       <SiteFooter />
     </div>
   );

@@ -240,8 +240,32 @@ export function SectionHeading({
   );
 }
 
-export function CtaBand() {
+export function CtaBand({ classic = false }: { classic?: boolean }) {
   const { t } = useLang();
+
+  if (classic) {
+    return (
+      <section className="shell-x aurora aurora--dark mesh-lines mesh-lines--dark surface-deep relative overflow-hidden section-y">
+        <div className="reveal relative mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
+          <div className="max-w-[640px]">
+            <h2 className="font-display text-[clamp(2rem,3.8vw,3.3rem)] leading-[1.18] text-white">
+              {t.cta.title}
+            </h2>
+            <p className="mt-5 max-w-[500px] t-lg leading-8 text-white/65">{t.cta.lede}</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <ArrowButton href="/demo" variant="accent" testId="button-cta-primary">
+              {t.cta.primary}
+            </ArrowButton>
+            <ArrowButton href="/solution" variant="ghost-light" testId="button-cta-secondary">
+              {t.cta.secondary}
+            </ArrowButton>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="cta-premium shell-x surface-deep relative overflow-hidden section-y-sm">
       <div className="cta-premium__grid absolute inset-0" aria-hidden="true" />
