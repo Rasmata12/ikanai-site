@@ -5,22 +5,66 @@ import { useLang } from '@/i18n/language-context';
 
 /* Photos de l'équipe : déposer les fichiers dans public/assets/equipe/
    et ajuster ce tableau. Laisser photo vide affiche le monogramme. */
+const formatMemberName = (name: string) => {
+  const [firstName, ...lastNameParts] = name.trim().split(/\s+/);
+
+  if (!firstName || lastNameParts.length === 0) {
+    return name;
+  }
+
+  return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()} ${lastNameParts
+    .map((part) => part.toUpperCase())
+    .join(' ')}`;
+};
+
 const MEMBERS = [
-  { name: 'Thomas Ouedraogo', photo: '', initials: 'TO', mail: 'thomas@ikanai.app' },
-  { name: 'Alane Jassem Traoré', photo: '/assets/equipe/alane.jpg', initials: 'AT', mail: 'alane@ikanai.app' },
-  { name: 'Rasmata Kabré', photo: '/assets/equipe/rasmata.jpg', initials: 'RK', mail: 'rasmata@ikanai.app' },
   {
-    name: 'Auguste-Marie Lionel Nitiema',
-    photo: '/assets/equipe/auguste.jpg',
-    initials: 'AN',
-    mail: 'auguste@ikanai.app',
+    name: 'Thomas Ouedraogo',
+    title: 'Product Owner',
+    subtitle: '',
+    photo: '',
+    initials: 'TO',
+    mail: 'thomas@ikanai.app',
   },
-  { name: 'Zana Coulibaly', photo: '/assets/equipe/zana.jpg', initials: 'ZC', mail: 'zana@ikanai.app' },
   {
-    name: 'Laura Arianne Kiswindsida Tenkodogo',
-    photo: '/assets/equipe/laura.jpg',
-    initials: 'LT',
-    mail: 'laura@ikanai.app',
+    name: 'Zana Coulibaly',
+    title: 'Communicant & Infographiste',
+    subtitle: 'Chargé de la communication & Design',
+    photo: '/assets/equipe/image-1789406984235.png',
+    initials: 'ZC',
+    mail: 'zana@ikanai.app',
+  },
+  {
+    name: 'Rasmata Kabré',
+    title: 'Ingénieure en génie des système numérique',
+    subtitle: 'Intelligence Artificielle',
+    photo: '/assets/equipe/image-1789406926840.png',
+    initials: 'RK',
+    mail: 'rasmata@ikanai.app',
+  },
+  {
+    name: 'Lionel Nitiema',
+    title: 'Ingénieur en génie des système numérique',
+    subtitle: 'Intelligence Artificielle',
+    photo: '/assets/equipe/image-1789406973182.png',
+    initials: 'LN',
+    mail: 'lionel@ikanai.app',
+  },
+  {
+    name: 'Alane Traoré',
+    title: 'Ingénieur des systèmes Numériques',
+    subtitle: 'Développeur Backend',
+    photo: '/assets/equipe/alane.jpg',
+    initials: 'AT',
+    mail: 'alane@ikanai.app',
+  },
+  {
+    name: 'Larissa Zigani',
+    title: 'Ingénieure en génie des système numérique',
+    subtitle: 'Développeuse frontend',
+    photo: '/assets/equipe/image-1789406963464.png',
+    initials: 'LZ',
+    mail: 'larissa@ikanai.app',
   },
 ];
 
@@ -149,27 +193,32 @@ export default function AboutPage() {
             lede={t.about.team.lede}
           />
 
-          <div className="mx-auto mt-16 grid max-w-[1040px] gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-16 grid max-w-[1040px] gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {MEMBERS.map((member, position) => (
               <motion.article
                 key={member.name}
-                className="member-card glass group relative overflow-hidden rounded-[1.9rem]"
+                className="member-card glass group relative overflow-hidden rounded-[1.8rem]"
                 style={{ zIndex: 1 }}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: (position % 3) * 0.08 }}
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.03,
                   zIndex: 30,
                   transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
                 }}
               >
-                <div className="relative aspect-square overflow-hidden bg-[hsl(var(--muted))]">
+                <div className="member-photo relative aspect-square overflow-hidden rounded-[1.35rem] bg-[hsl(var(--muted))] p-2">
                   {member.photo ? (
-                    <img src={member.photo} alt={member.name} loading="lazy" className="h-full w-full object-cover object-[center_20%]" />
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      loading="lazy"
+                      className="member-photo__image h-full w-full rounded-[1rem] object-cover object-[center_20%]"
+                    />
                   ) : (
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-5 bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
+                    <div className="flex h-full w-full flex-col items-center justify-center gap-5 rounded-[1rem] bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
                       <span className="flex h-24 w-24 items-center justify-center rounded-full border border-[hsl(var(--accent))]/45 font-display text-[2rem] text-[hsl(var(--accent))]">
                         {member.initials}
                       </span>
@@ -177,9 +226,9 @@ export default function AboutPage() {
                     </div>
                   )}
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary))]/85 via-[hsl(var(--primary))]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute inset-2 rounded-[1rem] bg-gradient-to-t from-[hsl(var(--primary))]/85 via-[hsl(var(--primary))]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                  <div className="absolute right-4 top-4 flex translate-y-2 flex-col gap-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute right-5 top-5 flex translate-y-2 flex-col gap-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                     <a
                       href={`mailto:${member.mail}`}
                       aria-label={member.name}
@@ -199,14 +248,18 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="p-7">
-                  <h3 className="font-display t-h3 leading-tight text-[hsl(var(--primary))]">{member.name}</h3>
-                  <p className="mt-2.5 t-xs font-bold uppercase tracking-[.18em] text-[hsl(var(--secondary))]">
-                    {t.about.team.roles[position]}
+                <div className="member-info p-6 pb-7">
+                  <h3 className="member-name font-display text-[clamp(1.1rem,1.7vw,1.5rem)] leading-tight text-[hsl(var(--primary))]">
+                    {formatMemberName(member.name)}
+                  </h3>
+                  <p className="member-role mt-2.5 t-xs font-bold uppercase tracking-[.18em] text-[hsl(var(--secondary))]">
+                    {member.title}
                   </p>
-                  <p className="mt-4 t-sm leading-7 text-[hsl(var(--muted-foreground))]">
-                    {t.about.team.bios[position]}
-                  </p>
+                  {member.subtitle ? (
+                    <p className="member-role mt-1.5 t-xs font-bold uppercase tracking-[.18em] text-[hsl(var(--secondary))] opacity-85">
+                      {member.subtitle}
+                    </p>
+                  ) : null}
                 </div>
               </motion.article>
             ))}

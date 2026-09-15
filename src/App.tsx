@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, type ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import { ScrollProgress } from '@/components/brand-shared';
@@ -8,15 +8,14 @@ import { SiteHeader } from '@/components/site-header';
 import { LanguageProvider } from '@/i18n/language-context';
 import HomePage from '@/pages/home-page';
 import NotFound from '@/pages/not-found';
-
-const PlatformPage = lazy(() => import('@/pages/platform-page'));
-const MethodPage = lazy(() => import('@/pages/method-page'));
-const TechnologyPage = lazy(() => import('@/pages/technology-page'));
-const CockpitPage = lazy(() => import('@/pages/cockpit-page'));
-const GovernancePage = lazy(() => import('@/pages/governance-page'));
-const AboutPage = lazy(() => import('@/pages/about-page'));
-const ContactPage = lazy(() => import('@/pages/contact-page'));
-const DemoPage = lazy(() => import('@/pages/demo-page'));
+import PlatformPage from '@/pages/platform-page';
+import MethodPage from '@/pages/method-page';
+import TechnologyPage from '@/pages/technology-page';
+import CockpitPage from '@/pages/cockpit-page';
+import GovernancePage from '@/pages/governance-page';
+import AboutPage from '@/pages/about-page';
+import ContactPage from '@/pages/contact-page';
+import DemoPage from '@/pages/demo-page';
 
 function PageLoader() {
   return (
@@ -94,23 +93,21 @@ function Router() {
     <RoutedErrorBoundary>
       <ScrollManager />
       <Shell>
-        <Suspense fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" component={HomePage} />
-            <Route path="/solution" component={PlatformPage} />
-            <Route path="/solution/methode" component={MethodPage} />
-            <Route path="/solution/technologie" component={TechnologyPage} />
-            <Route path="/solution/cockpit" component={CockpitPage} />
-            <Route path="/solution/gouvernance" component={GovernancePage} />
-            <Route path="/a-propos" component={AboutPage} />
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/demo" component={DemoPage} />
-            <Route path="/nos-offres" component={LegacyOffersRedirect} />
-            <Route path="/plateforme" component={LegacyPlatformRedirect} />
-            <Route path="/plateforme/:rest*" component={LegacyPlatformRedirect} />
-            <Route component={NotFound} />
-          </Switch>
-        </Suspense>
+        <Switch>
+          <Route path="/" component={HomePage} />
+          <Route path="/solution" component={PlatformPage} />
+          <Route path="/solution/methode" component={MethodPage} />
+          <Route path="/solution/technologie" component={TechnologyPage} />
+          <Route path="/solution/cockpit" component={CockpitPage} />
+          <Route path="/solution/gouvernance" component={GovernancePage} />
+          <Route path="/a-propos" component={AboutPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/demo" component={DemoPage} />
+          <Route path="/nos-offres" component={LegacyOffersRedirect} />
+          <Route path="/plateforme" component={LegacyPlatformRedirect} />
+          <Route path="/plateforme/:rest*" component={LegacyPlatformRedirect} />
+          <Route component={NotFound} />
+        </Switch>
       </Shell>
     </RoutedErrorBoundary>
   );

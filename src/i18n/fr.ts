@@ -272,7 +272,7 @@ export const fr: Dict = {
     },
     sectors: {
       eyebrow: 'Pour qui',
-      title: 'Pensé pour les réseaux',
+      title: 'Pensée pour les réseaux',
       accent: 'à forte affluence.',
       lede: "Partout où des clients patientent, sont reçus puis repartent sans rien dire, nous leur redonnons la parole.",
       list: [
@@ -533,11 +533,11 @@ export const fr: Dict = {
       lede: 'Six compétences complémentaires : produit, ingénierie logicielle, intelligence artificielle, design et développement commercial.',
       roles: [
         'Product Owner',
-        'Développeur back-end',
-        'Intelligence artificielle',
-        'Intelligence artificielle',
-        'Développement commercial',
-        'Interfaces et design',
+        'Ingénieur des systèmes Numériques',
+        'Développeur Backend',
+        'Ingénieure en génie des systèmes numérique',
+        'Intelligence Artificielle',
+        'Communicante & infographiste',
       ],
       bios: [
         "Porte la vision produit et fait le lien permanent entre les réalités du terrain et les arbitrages de conception.",
@@ -665,8 +665,8 @@ export const fr: Dict = {
     lede: "Découvrez nos formules, puis écrivez-nous : notre équipe vous répond sous vingt-quatre heures ouvrées, que vous vouliez une démonstration, un devis ou simplement un avis sur votre réseau.",
     anchors: { offers: 'Nos offres', write: 'Nous écrire', faq: 'Questions fréquentes' },
     channels: [
-      { label: 'Nous écrire', value: 'contact@ikanai.app', icon: 'mail' },
-      { label: 'Nous appeler', value: '+226 70 00 00 00', icon: 'phone' },
+      { label: 'Nous écrire', value: 'ikanai.marketing@gmail.com', icon: 'mail' },
+      { label: 'Nous appeler', value: '+226 72 31 91 28', icon: 'phone' },
       { label: 'Nous suivre', value: 'IKAN AI sur LinkedIn', icon: 'linkedin' },
     ],
     officeLabel: 'Nos bureaux',

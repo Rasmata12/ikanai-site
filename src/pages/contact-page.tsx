@@ -5,7 +5,7 @@ import { Icon } from '@/components/icon';
 import { submitContact } from '@/lib/api';
 import { useLang } from '@/i18n/language-context';
 
-const HREFS = ['mailto:contact@ikanai.app', 'tel:+22670000000', 'https://www.linkedin.com'];
+const HREFS = ['mailto:ikanai.marketing@gmail.com', 'tel:+22672319128', 'https://www.linkedin.com'];
 
 export default function ContactPage() {
   useReveals();

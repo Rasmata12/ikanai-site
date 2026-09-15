@@ -57,13 +57,13 @@ export function SiteFooter() {
               {t.footer.reach}
             </h3>
             <div className="mt-5 grid grid-cols-1 gap-3.5 t-md text-white/65 sm:grid-cols-2 lg:flex lg:flex-col lg:gap-4">
-              <a href="mailto:contact@ikanai.app" className="flex items-center gap-2.5 transition hover:text-[hsl(var(--accent))]">
+              <a href="mailto:ikanai.marketing@gmail.com" className="flex items-center gap-2.5 transition hover:text-[hsl(var(--accent))]">
                 <Icon name="mail" className="shrink-0 text-[13px] text-[hsl(var(--accent))]" />
-                <span>contact@ikanai.app</span>
+                <span>ikanai.marketing@gmail.com</span>
               </a>
-              <a href="tel:+22670000000" className="flex items-center gap-2.5 transition hover:text-[hsl(var(--accent))]">
+              <a href="tel:+22672319128" className="flex items-center gap-2.5 transition hover:text-[hsl(var(--accent))]">
                 <Icon name="phone" className="shrink-0 text-[13px] text-[hsl(var(--accent))]" />
-                <span>+226 70 00 00 00</span>
+                <span>+226 72 31 91 28</span>
               </a>
               <p className="flex items-start gap-2.5 sm:col-span-2 lg:col-span-1">
                 <Icon name="pin" className="mt-0.5 shrink-0 text-[13px] text-[hsl(var(--accent))]" />

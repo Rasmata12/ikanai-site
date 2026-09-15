@@ -355,11 +355,11 @@ export const en: Dict = {
       lede: 'Six complementary skills: product, software engineering, artificial intelligence, design and business development.',
       roles: [
         'Product Owner',
-        'Back-end developer',
+        'Digital systems engineer',
+        'Backend developer',
+        'Digital systems engineering',
         'Artificial intelligence',
-        'Artificial intelligence',
-        'Business development',
-        'Interfaces and design',
+        'Communication & design',
       ],
       bios: [
         'Carries the product vision and keeps a permanent link between field realities and design trade-offs.',
@@ -487,8 +487,8 @@ export const en: Dict = {
     lede: 'Look through our plans, then write to us: our team replies within twenty-four working hours, whether you want a demo, a quote or simply a view on your network.',
     anchors: { offers: 'Our plans', write: 'Write to us', faq: 'FAQ' },
     channels: [
-      { label: 'Email us', value: 'contact@ikanai.app', icon: 'mail' },
-      { label: 'Call us', value: '+226 70 00 00 00', icon: 'phone' },
+      { label: 'Email us', value: 'ikanai.marketing@gmail.com', icon: 'mail' },
+      { label: 'Call us', value: '+226 72 31 91 28', icon: 'phone' },
       { label: 'Follow us', value: 'IKAN AI on LinkedIn', icon: 'linkedin' },
     ],
     officeLabel: 'Our offices',

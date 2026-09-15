@@ -33,8 +33,8 @@ export const env = {
   smtpSecure: process.env.SMTP_SECURE === 'true',
   smtpUser: process.env.SMTP_USER || '',
   smtpPassword: process.env.SMTP_PASSWORD || '',
-  mailFrom: process.env.MAIL_FROM || 'IKAN AI <contact@ikanai.app>',
-  mailTo: process.env.MAIL_TO || 'contact@ikanai.app',
+  mailFrom: process.env.MAIL_FROM || 'IKAN AI <ikanai.marketing@gmail.com>',
+  mailTo: process.env.MAIL_TO || 'ikanai.marketing@gmail.com',
 
   rateLimitMax: Number(process.env.RATE_LIMIT_MAX ?? 20),
 

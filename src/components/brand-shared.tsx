@@ -243,21 +243,34 @@ export function SectionHeading({
 export function CtaBand() {
   const { t } = useLang();
   return (
-    <section className="shell-x aurora aurora--dark mesh-lines mesh-lines--dark surface-deep relative overflow-hidden section-y">
-      <div className="reveal relative mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
-        <div className="max-w-[640px]">
-          <h2 className="font-display text-[clamp(2rem,3.8vw,3.3rem)] leading-[1.18] text-white">
-            {t.cta.title}
-          </h2>
-          <p className="mt-5 max-w-[500px] t-lg leading-8 text-white/65">{t.cta.lede}</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-4">
-          <ArrowButton href="/demo" variant="accent" testId="button-cta-primary">
-            {t.cta.primary}
-          </ArrowButton>
-          <ArrowButton href="/solution" variant="ghost-light" testId="button-cta-secondary">
-            {t.cta.secondary}
-          </ArrowButton>
+    <section className="cta-premium shell-x surface-deep relative overflow-hidden section-y-sm">
+      <div className="cta-premium__grid absolute inset-0" aria-hidden="true" />
+      <div className="cta-premium__glow absolute -right-24 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full" aria-hidden="true" />
+      <div className="reveal relative mx-auto max-w-[1240px]">
+        <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-24">
+          <div>
+            <p className="mb-6 t-xs font-bold uppercase tracking-[.28em] text-[hsl(var(--accent))]">Une décision plus claire commence ici</p>
+            <h2 className="max-w-[760px] font-display text-[clamp(2.35rem,5vw,5rem)] leading-[.98] tracking-[-.04em] text-white">
+              {t.cta.title}
+            </h2>
+          </div>
+
+          <div className="cta-premium__actions relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.06] p-6 backdrop-blur-md sm:p-8">
+            <span className="absolute -right-12 -top-12 h-32 w-32 rounded-full border border-[hsl(var(--accent)/.28)]" aria-hidden="true" />
+            <span className="absolute -right-5 -top-5 h-16 w-16 rounded-full border border-[hsl(var(--accent)/.2)]" aria-hidden="true" />
+            <div className="relative">
+              <p className="t-xs font-bold uppercase tracking-[.2em] text-white/48">Votre prochain pilote</p>
+              <p className="mt-3 max-w-[280px] font-display text-[1.35rem] leading-tight text-white">Transformez les retours en décisions.</p>
+              <div className="mt-7 flex w-full flex-nowrap gap-2 sm:gap-3">
+                <ArrowButton href="/demo" variant="accent" compact testId="button-cta-primary">
+                {t.cta.primary}
+                </ArrowButton>
+                <ArrowButton href="/solution" variant="ghost-light" compact testId="button-cta-secondary">
+                {t.cta.secondary}
+                </ArrowButton>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
