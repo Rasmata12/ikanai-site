@@ -15,6 +15,7 @@ import GovernancePage from '@/pages/governance-page';
 import AboutPage from '@/pages/about-page';
 import ContactPage from '@/pages/contact-page';
 import DemoPage from '@/pages/demo-page';
+import SignupPage, { SignupCancelledPage, SignupSuccessPage } from '@/pages/signup-page';
 
 function PageLoader() {
   return (
@@ -90,6 +91,9 @@ function Router() {
           <Route path="/a-propos" component={AboutPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/demo" component={DemoPage} />
+          <Route path="/inscription/succes" component={SignupSuccessPage} />
+          <Route path="/inscription/annule" component={SignupCancelledPage} />
+          <Route path="/inscription" component={SignupPage} />
           <Route path="/nos-offres" component={LegacyOffersRedirect} />
           <Route path="/plateforme" component={LegacyPlatformRedirect} />
           <Route path="/plateforme/:rest*" component={LegacyPlatformRedirect} />

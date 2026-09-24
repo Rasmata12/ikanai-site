@@ -1,4 +1,5 @@
 const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:4000';
+const CHECKOUT_API_URL = (import.meta.env.VITE_CHECKOUT_API_URL as string | undefined) ?? 'https://ikan-772d.onrender.com';
 
 export type ContactPayload = {
   prenom: string;
@@ -37,4 +38,40 @@ export function submitContact(payload: ContactPayload) {
 
 export function subscribeNewsletter(email: string, langue: 'fr' | 'en') {
   return postJson<{ ok: true; alreadySubscribed: boolean }>('/api/newsletter', { email, langue });
+}
+
+export type SignupPayload = {
+  nom_organisation: string;
+  secteur_activite: string;
+  pays_region: string;
+  email_organisation: string;
+  prenom_contact: string;
+  nom_contact: string;
+  email_contact: string;
+  telephone?: string;
+  plan_code: 'starter' | 'pro';
+  success_url: string;
+  cancel_url: string;
+};
+
+export async function createSignupCheckout(payload: SignupPayload): Promise<ApiResult<{ checkout_url: string }>> {
+  try {
+    const response = await fetch(`${CHECKOUT_API_URL}/api/v1/public/inscription-checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const json = await response.json().catch(() => null);
+    if (!response.ok) {
+      return { ok: false, error: json?.error ?? json?.detail ?? "Une erreur est survenue. Merci de réessayer." };
+    }
+
+    const checkoutUrl = json?.checkout_url ?? json?.url;
+    if (!checkoutUrl) {
+      return { ok: false, error: "Le lien de paiement n'a pas pu être créé. Merci de réessayer." };
+    }
+    return { ok: true, data: { checkout_url: checkoutUrl } };
+  } catch {
+    return { ok: false, error: "Impossible de joindre le serveur. Vérifiez votre connexion." };
+  }
 }

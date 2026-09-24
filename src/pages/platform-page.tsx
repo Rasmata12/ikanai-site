@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { CtaBand, PageHero, useReveals } from '@/components/brand-shared';
 import { Icon } from '@/components/icon';
 import { OffersSection } from '@/components/offers-section';
@@ -19,6 +19,7 @@ const PREVIEWS = [
 export default function PlatformPage() {
   useReveals();
   const { t } = useLang();
+  const [, navigate] = useLocation();
 
   return (
     <div className="relative overflow-hidden">
@@ -43,7 +44,11 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      <OffersSection />
+      <OffersSection onSelect={(offer) => {
+        if (offer === 'Starter' || offer === 'Pro') {
+          navigate(`/inscription?plan=${offer.toLowerCase()}`);
+        }
+      }} />
 
       <CtaBand />
     </div>
