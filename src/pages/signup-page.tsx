@@ -6,7 +6,7 @@ import { createSignupCheckout, type SignupPayload } from '@/lib/api';
 
 type PlanCode = SignupPayload['plan_code'];
 
-const PLAN_LABELS: Record<PlanCode, string> = { starter: 'Starter', pro: 'Pro' };
+const PLAN_LABELS: Record<PlanCode, string> = { free: 'Gratuit', starter: 'Starter', pro: 'Pro' };
 
 const initialForm = {
   nom_organisation: '',
@@ -44,7 +44,7 @@ function Field({ label, name, type = 'text', required = true, value, onChange }:
 
 export default function SignupPage() {
   const plan = new URLSearchParams(window.location.search).get('plan') as PlanCode | null;
-  const selectedPlan = plan === 'pro' ? 'pro' : 'starter';
+  const selectedPlan: PlanCode = plan === 'free' || plan === 'pro' ? plan : 'starter';
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -60,13 +60,17 @@ export default function SignupPage() {
     setError('');
     const payload: SignupPayload = {
       ...form,
+      prenom_contact: 'Administrateur',
+      nom_contact: form.nom_organisation,
+      email_contact: form.email_organisation,
       plan_code: selectedPlan,
       success_url: `${window.location.origin}/inscription/succes`,
       cancel_url: `${window.location.origin}/inscription/annule`,
     };
     const result = await createSignupCheckout(payload);
     if (result.ok) {
-      window.location.href = result.data.checkout_url;
+      const nextUrl = result.data.checkout_url ?? result.data.dashboard_url;
+      if (nextUrl) window.location.href = nextUrl;
       return;
     }
     setError(result.error);
@@ -79,7 +83,9 @@ export default function SignupPage() {
         eyebrow="Inscription"
         title="Commencez avec"
         accent={`la formule ${PLAN_LABELS[selectedPlan]}.`}
-        lede="Quelques informations suffisent pour créer votre espace et vous rediriger vers le paiement sécurisé Stripe."
+        lede={selectedPlan === 'free'
+          ? "Créez votre accès gratuitement avec les informations de votre organisation."
+          : "Quelques informations suffisent pour créer votre espace, puis accéder au paiement sécurisé Stripe."}
       />
       <section className="shell-x section-pb">
         <div className="mx-auto max-w-[820px]">
@@ -99,23 +105,16 @@ export default function SignupPage() {
                 <Field label="Pays / région" name="pays_region" value={form.pays_region} onChange={update('pays_region')} />
                 <Field label="Email professionnel" name="email_organisation" type="email" value={form.email_organisation} onChange={update('email_organisation')} />
               </div>
-              <div className="border-t border-[hsl(var(--foreground)/.09)] pt-7">
-                <p className="mb-5 font-display text-lg text-[hsl(var(--primary))]">Votre contact principal</p>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <Field label="Prénom" name="prenom_contact" value={form.prenom_contact} onChange={update('prenom_contact')} />
-                  <Field label="Nom" name="nom_contact" value={form.nom_contact} onChange={update('nom_contact')} />
-                  <Field label="Email du contact" name="email_contact" type="email" value={form.email_contact} onChange={update('email_contact')} />
-                  <Field label="Téléphone" name="telephone" type="tel" required={false} value={form.telephone} onChange={update('telephone')} />
-                </div>
-              </div>
-              <p className="rounded-xl bg-[hsl(var(--muted))] px-4 py-3 t-xs leading-5 text-[hsl(var(--muted-foreground))]">
-                Le moyen de paiement sera saisi directement sur Stripe. IKAN AI ne vous demande aucun numéro bancaire sur ce formulaire.
-              </p>
+              {selectedPlan !== 'free' ? (
+                <p className="rounded-xl bg-[hsl(var(--muted))] px-4 py-3 t-xs leading-5 text-[hsl(var(--muted-foreground))]">
+                  Le moyen de paiement sera saisi directement sur Stripe. IKAN AI ne vous demande aucun numéro bancaire sur ce formulaire.
+                </p>
+              ) : null}
               {error ? <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 t-sm text-red-700">{error}</p> : null}
               <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <Link href="/solution#offres" className="focus-ring t-sm font-semibold text-[hsl(var(--secondary))] hover:text-[hsl(var(--primary))]">Retour aux formules</Link>
                 <button type="submit" disabled={submitting} className="focus-ring shine inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-br from-[hsl(75_70%_55%)] to-[hsl(var(--accent))] px-7 py-3.5 t-sm font-bold text-[hsl(var(--primary))] disabled:cursor-wait disabled:opacity-60">
-                  {submitting ? 'Redirection en cours...' : 'Continuer vers le paiement'}
+                  {submitting ? 'Création en cours...' : selectedPlan === 'free' ? 'Créer mon accès' : 'Continuer vers le paiement'}
                   {!submitting ? <Icon name="arrowRight" className="text-[11px]" /> : null}
                 </button>
               </div>

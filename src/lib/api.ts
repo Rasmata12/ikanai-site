@@ -49,12 +49,12 @@ export type SignupPayload = {
   nom_contact: string;
   email_contact: string;
   telephone?: string;
-  plan_code: 'starter' | 'pro';
+  plan_code: 'free' | 'starter' | 'pro';
   success_url: string;
   cancel_url: string;
 };
 
-export async function createSignupCheckout(payload: SignupPayload): Promise<ApiResult<{ checkout_url: string }>> {
+export async function createSignupCheckout(payload: SignupPayload): Promise<ApiResult<{ checkout_url?: string; dashboard_url?: string; access_url?: string }>> {
   try {
     const response = await fetch(`${CHECKOUT_API_URL}/api/v1/public/inscription-checkout`, {
       method: 'POST',
@@ -63,14 +63,18 @@ export async function createSignupCheckout(payload: SignupPayload): Promise<ApiR
     });
     const json = await response.json().catch(() => null);
     if (!response.ok) {
+      if (response.status === 404) {
+        return { ok: false, error: "Le service d'inscription n'est pas encore disponible sur l'API. Merci de réessayer après son déploiement." };
+      }
       return { ok: false, error: json?.error ?? json?.detail ?? "Une erreur est survenue. Merci de réessayer." };
     }
 
     const checkoutUrl = json?.checkout_url ?? json?.url;
-    if (!checkoutUrl) {
+    const accessUrl = json?.dashboard_url ?? json?.access_url;
+    if (!checkoutUrl && !accessUrl) {
       return { ok: false, error: "Le lien de paiement n'a pas pu être créé. Merci de réessayer." };
     }
-    return { ok: true, data: { checkout_url: checkoutUrl } };
+    return { ok: true, data: { checkout_url: checkoutUrl, dashboard_url: accessUrl } };
   } catch {
     return { ok: false, error: "Impossible de joindre le serveur. Vérifiez votre connexion." };
   }
