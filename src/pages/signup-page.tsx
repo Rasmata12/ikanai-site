@@ -108,6 +108,9 @@ export default function SignupPage() {
                   <Field label="Téléphone" name="telephone" type="tel" required={false} value={form.telephone} onChange={update('telephone')} />
                 </div>
               </div>
+              <p className="rounded-xl bg-[hsl(var(--muted))] px-4 py-3 t-xs leading-5 text-[hsl(var(--muted-foreground))]">
+                Le moyen de paiement sera saisi directement sur Stripe. IKAN AI ne vous demande aucun numéro bancaire sur ce formulaire.
+              </p>
               {error ? <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 t-sm text-red-700">{error}</p> : null}
               <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <Link href="/solution#offres" className="focus-ring t-sm font-semibold text-[hsl(var(--secondary))] hover:text-[hsl(var(--primary))]">Retour aux formules</Link>

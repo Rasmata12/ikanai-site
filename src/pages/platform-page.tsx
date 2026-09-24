@@ -47,6 +47,8 @@ export default function PlatformPage() {
       <OffersSection onSelect={(offer) => {
         if (offer === 'Starter' || offer === 'Pro') {
           navigate(`/inscription?plan=${offer.toLowerCase()}`);
+        } else if (offer === 'Entreprise' || offer === 'Enterprise') {
+          navigate('/contact#formulaire');
         }
       }} />
 
