@@ -107,7 +107,7 @@ export default function SignupPage() {
               </div>
               {selectedPlan !== 'free' ? (
                 <p className="rounded-xl bg-[hsl(var(--muted))] px-4 py-3 t-xs leading-5 text-[hsl(var(--muted-foreground))]">
-                  Le moyen de paiement sera saisi directement sur Stripe. IKAN AI ne vous demande aucun numéro bancaire sur ce formulaire.
+                  Après ce formulaire, vous serez redirigé vers Stripe pour renseigner votre carte bancaire ou votre autre moyen de paiement. Vos données de paiement restent saisies et sécurisées chez Stripe.
                 </p>
               ) : null}
               {error ? <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 t-sm text-red-700">{error}</p> : null}
