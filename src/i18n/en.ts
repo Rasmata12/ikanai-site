@@ -80,8 +80,8 @@ export const en: Dict = {
   home: {
     facts: [
       { value: '30 s', label: 'to leave a complete review' },
-      { value: '15', label: 'business themes recognised' },
-      { value: '3', label: 'levels of steering' },
+      { value: 'YAM', label: 'the AI agent that answers on your own data' },
+      { value: 'Social', label: 'listening to what is said about you' },
       { value: '24/7', label: 'continuous analysis of feedback' },
     ],
     pillars: {
@@ -415,25 +415,14 @@ export const en: Dict = {
     unitFree: 'no commitment',
     plans: [
       {
-        name: 'Free',
-        tagline: 'To test IKAN AI on a first point of sale.',
-        highlight: '1 CX Manager · 1 Branch · 20 feedbacks',
-        features: [
-          '1 CX Manager, 1 branch',
-          '20 feedbacks per month',
-          'QR code and customer form',
-          'Sentiment analysis',
-          'Community support',
-        ],
-      },
-      {
         name: 'Starter',
         tagline: 'For small local networks and franchises.',
         highlight: '1 CX Manager · 3 Branches · Unlimited feedbacks',
         features: [
-          'Everything in the Free plan',
+          'QR code and customer form',
           '1 CX Manager, 3 branches',
           'Unlimited feedbacks',
+          'Sentiment analysis',
           'Theme classification (AI)',
           'Live severity alert',
           'Email support (48h)',

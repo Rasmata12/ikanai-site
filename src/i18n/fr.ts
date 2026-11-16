@@ -258,8 +258,8 @@ export const fr: Dict = {
   home: {
     facts: [
       { value: '30 s', label: "pour déposer un avis complet" },
-      { value: '15', label: 'thématiques métier reconnues' },
-      { value: '3', label: 'niveaux de pilotage' },
+      { value: 'YAM', label: "l'agent IA qui répond sur vos données" },
+      { value: 'Veille', label: 'de ce qui se dit sur vos réseaux sociaux' },
       { value: '24/7', label: 'analyse continue des retours' },
     ],
     pillars: {
@@ -593,25 +593,14 @@ export const fr: Dict = {
     unitFree: 'sans engagement',
     plans: [
       {
-        name: 'Gratuit',
-        tagline: "Pour tester IKAN AI sur un premier point de vente.",
-        highlight: '1 CX Manager · 1 Agence · 20 feedbacks',
-        features: [
-          '1 CX Manager, 1 agence',
-          '20 feedbacks par mois',
-          'QR code et formulaire client',
-          'Analyse du sentiment',
-          'Support communautaire',
-        ],
-      },
-      {
         name: 'Starter',
         tagline: "Pour les petits réseaux et franchises locales.",
         highlight: '1 CX Manager · 3 Agences · Feedbacks illimités',
         features: [
-          'Tout de la formule Gratuit',
+          'QR code et formulaire client',
           '1 CX Manager, 3 agences',
           'Feedbacks illimités',
+          'Analyse du sentiment',
           'Classification thématique (IA)',
           'Alerte de criticité en direct',
           'Support par email (48h)',

@@ -22,7 +22,7 @@ const MEMBERS = [
     name: 'Thomas Ouedraogo',
     title: 'Product Owner',
     subtitle: '',
-    photo: '',
+    photo: '/assets/equipe/thomas.png',
     initials: 'TO',
     mail: 'thomas@ikanai.app',
   },

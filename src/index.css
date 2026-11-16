@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* La police est chargee par une balise <link> dans index.html, pas ici :
+   un @import oblige le navigateur a telecharger ce CSS, le lire, puis seulement
+   demander la police — trois allers-retours en serie avant le premier texte
+   affiche. Sur une connexion mobile a forte latence, cela retarde nettement
+   l'affichage. Le <link> part en parallele des le chargement de la page. */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -1597,5 +1601,36 @@ html, body { max-width: 100%; overflow-x: clip; }
     margin-top: 1.1rem;
     padding-top: .75rem;
     gap: .75rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Confort de saisie sur mobile
+
+   iOS Safari zoome automatiquement sur un champ dont la police fait
+   moins de 16px, et ne redezoome pas ensuite : l'utilisateur doit
+   pincer l'ecran pour revenir. Tous les champs du site etaient a
+   12-13px, donc concernes — y compris le formulaire de contact et
+   celui d'inscription.
+
+   La regle ne s'applique qu'en dessous de 640px : l'apparence sur
+   ordinateur reste strictement inchangee.
+
+   Le !important est volontaire et limite a ce bloc : les champs recoivent
+   leur taille via des classes (.field-input, utilitaires Tailwind), qui
+   l'emportent sinon sur un selecteur d'element. C'est une correction
+   d'usage, pas un choix esthetique.
+------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Zone tactile confortable (recommandation : 44px minimum). */
+  input:not([type='checkbox']):not([type='radio']),
+  select {
+    min-height: 44px;
   }
 }

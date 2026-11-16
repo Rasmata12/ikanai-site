@@ -14,9 +14,8 @@ const PLANS: {
   featured?: boolean;
   dark?: boolean;
 }[] = [
-  { monthly: 0, annual: 0, icon: 'qr', free: true },
-  { monthly: 30000, annual: 25000, icon: 'bolt' },
-  { monthly: 50000, annual: 40000, icon: 'crown', featured: true, dark: true },
+  { monthly: 99000, annual: 82500, icon: 'bolt' },
+  { monthly: 199000, annual: 165000, icon: 'crown', featured: true, dark: true },
   { monthly: null, annual: null, icon: 'shield' },
 ];
 
@@ -86,8 +85,8 @@ export function OffersSection({ onSelect }: { onSelect?: (offer: string) => void
           </AnimatePresence>
         </div>
 
-        {/* Les quatre formules */}
-        <div className="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {/* Les trois formules */}
+        <div className="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">
           {t.offers.plans.map((plan, position) => {
             const config = PLANS[position];
             const amount = annual ? config.annual : config.monthly;
