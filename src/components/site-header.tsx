@@ -18,7 +18,14 @@ export function SiteHeader() {
   ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    let previous = false;
+    const onScroll = () => {
+      const next = window.scrollY > 40;
+      if (next !== previous) {
+        previous = next;
+        setScrolled(next);
+      }
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);

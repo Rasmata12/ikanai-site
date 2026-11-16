@@ -54,6 +54,30 @@ export type Dict = {
     lede: string;
     pipeline: Card[];
     stack: string[];
+    intelligence: {
+      eyebrow: string;
+      title: string;
+      accent: string;
+      lede: string;
+      yam: {
+        label: string;
+        title: string;
+        body: string;
+        tags: string[];
+        previewLabel: string;
+        question: string;
+        answer: string;
+      };
+      watch: {
+        label: string;
+        title: string;
+        body: string;
+        tags: string[];
+        previewLabel: string;
+        mentions: { source: string; time: string; text: string }[];
+      };
+      cta: string;
+    };
     demo: {
       eyebrow: string;
       title: string;
@@ -382,6 +406,33 @@ export const fr: Dict = {
       'Cartographie du réseau',
       'Gestion fine des rôles',
     ],
+    intelligence: {
+      eyebrow: 'Deux nouvelles façons d’écouter',
+      title: 'Les bonnes informations,',
+      accent: 'au bon moment.',
+      lede: "YAM vous aide à explorer vos propres données. La Veille vous permet de suivre les conversations publiques sur les réseaux sociaux.",
+      yam: {
+        label: 'Assistant IA',
+        title: 'YAM répond à vos questions.',
+        body: "Posez une question simplement : YAM s’appuie sur les données de votre organisation pour vous apporter une réponse contextualisée.",
+        tags: ['Vos données', 'Questions en langage naturel'],
+        previewLabel: 'Exemple d’échange',
+        question: 'Que disent les clients sur l’accueil en agence ?',
+        answer: "YAM recherche dans les données de votre organisation les retours liés à l’accueil.",
+      },
+      watch: {
+        label: 'Écoute des réseaux sociaux',
+        title: 'La Veille suit les conversations.',
+        body: "Retrouvez au même endroit les prises de parole publiques qui concernent votre marque, pour ne pas passer à côté de ce qui se dit en ligne.",
+        tags: ['Conversations publiques', 'Réseaux sociaux'],
+        previewLabel: 'Exemples de mentions',
+        mentions: [
+          { source: 'Mention publique', time: 'À l’instant', text: 'Merci à votre équipe pour son accueil chaleureux !' },
+          { source: 'Mention publique', time: 'Récemment', text: 'J’attends toujours une réponse à ma demande…' },
+        ],
+      },
+      cta: 'Parlons de vos besoins',
+    },
     demo: {
       eyebrow: 'À vous d\'essayer',
       title: "D'une phrase écrite au comptoir",
@@ -615,6 +666,7 @@ export const fr: Dict = {
           '2 à 3 CX Managers, 10 agences',
           'Détection de discordance (IA)',
           'Agent IA conversationnel',
+          'Veille des réseaux sociaux',
           'Analyse prédictive (IA)',
           'Support prioritaire (24h)',
         ],

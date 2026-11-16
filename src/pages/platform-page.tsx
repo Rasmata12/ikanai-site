@@ -70,7 +70,6 @@ function PlatformRow({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const flipped = index % 2 === 1;
-
   // Léger effet de profondeur : l'image glisse plus lentement que la page.
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const imageY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
@@ -141,6 +140,7 @@ function PlatformRow({
               src={preview.src}
               alt=""
               loading="lazy"
+              decoding="async"
               style={{ objectPosition: preview.position, y: imageY }}
               className="h-[290px] w-full scale-110 object-cover lg:h-[420px]"
             />

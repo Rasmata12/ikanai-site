@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CtaBand, PageHero, PlatformPager, SectionHeading, useReveals } from '@/components/brand-shared';
 import { Icon } from '@/components/icon';
+import { IntelligenceSection } from '@/components/intelligence-section';
 import {
   actionFor,
   analyseFeedback,
@@ -81,15 +82,10 @@ export default function TechnologyPage() {
             ))}
           </div>
 
-          <div className="reveal mt-14 flex flex-wrap gap-3">
-            {t.tech.stack.map((item) => (
-              <span key={item} className="rounded-full border border-white/12 px-4 py-2 t-xs font-semibold text-white/65">
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
+
+      <IntelligenceSection />
 
       {/* ANALYSE EN DIRECT */}
       <section className="shell-x aurora surface-tint relative section-y">

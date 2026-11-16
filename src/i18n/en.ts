@@ -81,7 +81,7 @@ export const en: Dict = {
     facts: [
       { value: '30 s', label: 'to leave a complete review' },
       { value: 'YAM', label: 'the AI agent that answers on your own data' },
-      { value: 'Social', label: 'listening to what is said about you' },
+      { value: 'Social', label: 'listening to what is said about you online' },
       { value: '24/7', label: 'continuous analysis of feedback' },
     ],
     pillars: {
@@ -204,6 +204,33 @@ export const en: Dict = {
       'Network mapping',
       'Fine-grained role management',
     ],
+    intelligence: {
+      eyebrow: 'Two new ways to listen',
+      title: 'The right insights,',
+      accent: 'at the right time.',
+      lede: 'YAM helps you explore your own data. Social listening helps you follow public conversations across social networks.',
+      yam: {
+        label: 'AI assistant',
+        title: 'YAM answers your questions.',
+        body: 'Ask a question in plain language: YAM draws on your organisation’s data to give you a contextual answer.',
+        tags: ['Your data', 'Ask in plain language'],
+        previewLabel: 'Example conversation',
+        question: 'What are customers saying about their branch experience?',
+        answer: 'YAM searches your organisation’s data for feedback related to the branch experience.',
+      },
+      watch: {
+        label: 'Social listening',
+        title: 'Social listening follows the conversation.',
+        body: 'See public conversations about your brand in one place, so you can keep up with what people are saying online.',
+        tags: ['Public conversations', 'Social networks'],
+        previewLabel: 'Example mentions',
+        mentions: [
+          { source: 'Public mention', time: 'Just now', text: 'Thank you to your team for the warm welcome!' },
+          { source: 'Public mention', time: 'Recently', text: 'I am still waiting for a reply to my request…' },
+        ],
+      },
+      cta: 'Let’s discuss your needs',
+    },
     demo: {
       eyebrow: 'Try it yourself',
       title: 'From a sentence written at the counter',
@@ -437,6 +464,7 @@ export const en: Dict = {
           '2 to 3 CX Managers, 10 branches',
           'Inconsistency detection (AI)',
           'Conversational AI agent',
+          'Social media listening',
           'Predictive analysis (AI)',
           'Priority support (24h)',
         ],
